@@ -10,10 +10,13 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 var mongoose = require("mongoose");
-var db = "mongodb+srv://namkhanhnguyen770:kaizo1809@kaizo1893.yhhhcir.mongodb.net/";
+var db = "mongodb+srv://namkhanhnguyen770:kaizo1809@kaizo1893.yhhhcir.mongodb.net/demo";
 mongoose.connect(db)
 .then(() => console.log ("Connect to DB succeed !"))
 .catch((err) => console.log (err));
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended : false}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
